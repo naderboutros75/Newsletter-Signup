@@ -33,7 +33,7 @@ app.post("/", function (req, res) {
     const url = "https://us21.api.mailchimp.com/3.0/lists/ee3a75ad56";
     const options = {
         method: "POST",
-        auth: "nader75:ca4c3f7b498ad6d525650098492b9904-us21",
+        auth: "nader75:895d84793ef8d0c61d3ccd1ebc6af042-us21",
     };
 
     const request = https.request(url, options, function (response) {
@@ -61,7 +61,8 @@ app.listen(process.env.PORT || 3000, function () {
 });
 
 // API KEY
-// ca4c3f7b498ad6d525650098492b9904-us21
+// ca4c3f7b498ad6d525650098492b9904-us21 --- Second:  895d84793ef8d0c61d3ccd1ebc6af042-us21
+
 
 // list id
 // ee3a75ad56
