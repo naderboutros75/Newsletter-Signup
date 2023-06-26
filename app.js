@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
 const app = express();
+require('dotenv').config();
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,6 +16,7 @@ app.post("/", function (req, res) {
     const firstName = req.body.fName;
     const lastName = req.body.lName;
     const email = req.body.email;
+    const apiKey = process.env.apiKey;
 
     const data = {
         members: [
@@ -33,7 +35,7 @@ app.post("/", function (req, res) {
     const url = "https://us21.api.mailchimp.com/3.0/lists/ee3a75ad56";
     const options = {
         method: "POST",
-        auth: "nader75:07e78219900d5def3ab3bd2ff2eee334-us21",
+        auth: `nader75:${apiKey}`,
     };
 
     const request = https.request(url, options, function (response) {
@@ -59,4 +61,5 @@ app.post("/failure", function (req, res) {
 app.listen(process.env.PORT || 3000, function () {
     console.log("Server is running on port 3000");
 });
+
 
